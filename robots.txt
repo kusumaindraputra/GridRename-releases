@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kusumaindraputra.github.io/GridRename-releases/sitemap.xml
