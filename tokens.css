@@ -1,0 +1,235 @@
+/*
+ * LowFriction Lab design tokens.
+ *
+ * Every color is an "R G B" channel triplet so Tailwind can add opacity:
+ *   rgb(var(--lf-surface) / 0.5)
+ *
+ * Put the accent on <html> (and data-theme only to force a theme):
+ *   <html data-accent="blue">
+ * data-theme: "light" | "dark". Leave it off to follow the OS (the default);
+ * light is the fallback when the OS has no preference.
+ * data-accent: the app's identity color (see src/lib/catalog.ts).
+ */
+
+/* ---------- Accent scales (one per app) ---------- */
+/* 400 = text on dark, 500 = solid on dark, 600 = solid on light, 700 = dark end of the logo,
+   ink = text on light (700, or 800 where 700 misses AA on a 15% accent tint) */
+:root,
+[data-accent='blue'] {
+  --lf-accent-400: 96 165 250;
+  --lf-accent-500: 59 130 246;
+  --lf-accent-600: 37 99 235;
+  --lf-accent-700: 29 78 216;
+  --lf-accent-ink: 29 78 216;
+  --lf-accent-contrast: 255 255 255;
+}
+[data-accent='cyan'] {
+  --lf-accent-400: 34 211 238;
+  --lf-accent-500: 6 182 212;
+  --lf-accent-600: 8 145 178;
+  --lf-accent-700: 14 116 144;
+  --lf-accent-ink: 21 94 117;
+  --lf-accent-contrast: 255 255 255;
+}
+[data-accent='fuchsia'] {
+  --lf-accent-400: 232 121 249;
+  --lf-accent-500: 217 70 239;
+  --lf-accent-600: 192 38 211;
+  --lf-accent-700: 162 28 175;
+  --lf-accent-ink: 162 28 175;
+  --lf-accent-contrast: 255 255 255;
+}
+[data-accent='orange'] {
+  --lf-accent-400: 251 146 60;
+  --lf-accent-500: 249 115 22;
+  --lf-accent-600: 234 88 12;
+  --lf-accent-700: 194 65 12;
+  --lf-accent-ink: 154 52 18;
+  --lf-accent-contrast: 255 255 255;
+}
+[data-accent='teal'] {
+  --lf-accent-400: 45 212 191;
+  --lf-accent-500: 20 184 166;
+  --lf-accent-600: 13 148 136;
+  --lf-accent-700: 15 118 110;
+  --lf-accent-ink: 17 94 89;
+  --lf-accent-contrast: 255 255 255;
+}
+[data-accent='rose'] {
+  --lf-accent-400: 251 113 133;
+  --lf-accent-500: 244 63 94;
+  --lf-accent-600: 225 29 72;
+  --lf-accent-700: 190 18 60;
+  --lf-accent-ink: 190 18 60;
+  --lf-accent-contrast: 255 255 255;
+}
+[data-accent='lime'] {
+  --lf-accent-400: 163 230 53;
+  --lf-accent-500: 132 204 22;
+  --lf-accent-600: 101 163 13;
+  --lf-accent-700: 77 124 15;
+  --lf-accent-ink: 63 98 18;
+  --lf-accent-contrast: 26 46 5;
+}
+
+/* ---------- Light theme (base, used when the OS has no dark preference) ---------- */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --lf-canvas: 248 250 252; /* slate-50 */
+  --lf-surface: 255 255 255;
+  --lf-surface-raised: 241 245 249; /* slate-100 */
+  --lf-surface-sunken: 241 245 249;
+  --lf-field: 255 255 255;
+  --lf-overlay: 15 23 42;
+
+  --lf-line: 226 232 240; /* slate-200 */
+  --lf-line-strong: 203 213 225; /* slate-300 */
+
+  --lf-fg: 30 41 59; /* slate-800 */
+  --lf-fg-strong: 15 23 42;
+  --lf-fg-muted: 71 85 105; /* slate-600 */
+  --lf-fg-subtle: 90 105 128; /* darker than slate-500: AA on raised surfaces too */
+
+  --lf-accent: var(--lf-accent-600);
+  --lf-accent-fg: var(--lf-accent-ink);
+
+  --lf-primary: 4 120 87;
+  --lf-primary-hover: 6 95 70; /* emerald-800 */
+  --lf-primary-contrast: 255 255 255;
+
+  --lf-success: 5 150 105;
+  --lf-success-fg: 4 120 87;
+  --lf-warning: 217 119 6;
+  --lf-warning-fg: 180 83 9;
+  --lf-danger: 220 38 38;
+  --lf-danger-hover: 185 28 28;
+  --lf-danger-fg: 185 28 28;
+  --lf-info: 2 132 199;
+  --lf-info-fg: 3 105 161;
+
+  --lf-pro-from: 124 58 237;
+  --lf-pro-to: 79 70 229;
+  --lf-pro-from-hover: 109 40 217;
+  --lf-pro-to-hover: 67 56 202;
+  --lf-pro-fg: 109 40 217; /* violet-700 */
+
+  --lf-shadow-color: 15 23 42;
+}
+
+/* ---------- Dark theme (data-theme="dark", or the OS is in dark mode) ---------- */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --lf-canvas: 15 23 42; /* slate-900: window background */
+  --lf-surface: 30 41 59; /* slate-800: panels, table body, cards */
+  --lf-surface-raised: 51 65 85; /* slate-700: secondary buttons, hover */
+  --lf-surface-sunken: 2 6 23; /* slate-950: table header, wells */
+  --lf-field: 30 41 59; /* inputs */
+  --lf-overlay: 0 0 0; /* modal backdrop, use at 50% */
+
+  --lf-line: 51 65 85; /* slate-700 */
+  --lf-line-strong: 71 85 105; /* slate-600 */
+
+  --lf-fg: 226 232 240; /* slate-200: body text */
+  --lf-fg-strong: 255 255 255; /* headings */
+  --lf-fg-muted: 148 163 184; /* slate-400: secondary text, icons */
+  --lf-fg-subtle: 136 150 172; /* between slate-400/500: hints, row numbers (AA on canvas and surface) */
+
+  --lf-accent: var(--lf-accent-500);
+  --lf-accent-fg: var(--lf-accent-400);
+
+  /* Primary action ("Process Rename", "Start Resize"): same green in every app */
+  /* emerald-700 rather than GridRename's 600 so white text passes AA (5.5:1) */
+  --lf-primary: 4 120 87; /* emerald-700 */
+  --lf-primary-hover: 5 150 105; /* emerald-600 */
+  --lf-primary-contrast: 255 255 255;
+
+  --lf-success: 5 150 105;
+  --lf-success-fg: 52 211 153; /* emerald-400 */
+  --lf-warning: 217 119 6;
+  --lf-warning-fg: 251 191 36; /* amber-400 */
+  --lf-danger: 220 38 38;
+  --lf-danger-hover: 239 68 68;
+  --lf-danger-fg: 248 113 113; /* red-400 */
+  --lf-info: 2 132 199;
+  --lf-info-fg: 56 189 248; /* sky-400 */
+
+  /* Pro / upgrade: violet to indigo gradient in every app */
+  --lf-pro-from: 124 58 237; /* violet-600 */
+  --lf-pro-to: 79 70 229; /* indigo-600 */
+  --lf-pro-from-hover: 139 92 246;
+  --lf-pro-to-hover: 99 102 241;
+  --lf-pro-fg: 167 139 250; /* violet-400 */
+
+  --lf-shadow-color: 0 0 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --lf-canvas: 15 23 42; /* slate-900: window background */
+    --lf-surface: 30 41 59; /* slate-800: panels, table body, cards */
+    --lf-surface-raised: 51 65 85; /* slate-700: secondary buttons, hover */
+    --lf-surface-sunken: 2 6 23; /* slate-950: table header, wells */
+    --lf-field: 30 41 59; /* inputs */
+    --lf-overlay: 0 0 0; /* modal backdrop, use at 50% */
+
+    --lf-line: 51 65 85; /* slate-700 */
+    --lf-line-strong: 71 85 105; /* slate-600 */
+
+    --lf-fg: 226 232 240; /* slate-200: body text */
+    --lf-fg-strong: 255 255 255; /* headings */
+    --lf-fg-muted: 148 163 184; /* slate-400: secondary text, icons */
+    --lf-fg-subtle: 136 150 172; /* between slate-400/500: hints, row numbers (AA on canvas and surface) */
+
+    --lf-accent: var(--lf-accent-500);
+    --lf-accent-fg: var(--lf-accent-400);
+
+    /* Primary action ("Process Rename", "Start Resize"): same green in every app */
+    /* emerald-700 rather than GridRename's 600 so white text passes AA (5.5:1) */
+    --lf-primary: 4 120 87; /* emerald-700 */
+    --lf-primary-hover: 5 150 105; /* emerald-600 */
+    --lf-primary-contrast: 255 255 255;
+
+    --lf-success: 5 150 105;
+    --lf-success-fg: 52 211 153; /* emerald-400 */
+    --lf-warning: 217 119 6;
+    --lf-warning-fg: 251 191 36; /* amber-400 */
+    --lf-danger: 220 38 38;
+    --lf-danger-hover: 239 68 68;
+    --lf-danger-fg: 248 113 113; /* red-400 */
+    --lf-info: 2 132 199;
+    --lf-info-fg: 56 189 248; /* sky-400 */
+
+    /* Pro / upgrade: violet to indigo gradient in every app */
+    --lf-pro-from: 124 58 237; /* violet-600 */
+    --lf-pro-to: 79 70 229; /* indigo-600 */
+    --lf-pro-from-hover: 139 92 246;
+    --lf-pro-to-hover: 99 102 241;
+    --lf-pro-fg: 167 139 250; /* violet-400 */
+
+    --lf-shadow-color: 0 0 0;
+  }
+}
+
+/* ---------- Non-color tokens ---------- */
+:root {
+  /* System fonts first: apps are offline and small, so no webfont download */
+  --lf-font-sans: Inter, 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, Roboto,
+    sans-serif;
+  --lf-font-mono: 'Cascadia Mono', 'Cascadia Code', Consolas, ui-monospace, 'SF Mono', Menlo,
+    monospace;
+
+  --lf-radius-sm: 4px; /* small chips, inline inputs in table headers */
+  --lf-radius-md: 8px; /* buttons, inputs, table container */
+  --lf-radius-lg: 12px; /* modals, cards */
+
+  --lf-header-height: 56px;
+  --lf-row-height: 40px;
+
+  --lf-duration: 150ms;
+  --lf-ease: cubic-bezier(0.2, 0, 0, 1);
+}

@@ -1,146 +1,220 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-accent="blue">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GridRename: bulk rename files from an Excel-like grid</title>
   <meta name="description" content="Rename hundreds of files at once. Paste names from Excel, build names from columns, preview every change, undo in one click. Windows app, works offline.">
+  <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://kusumaindraputra.github.io/GridRename-releases/">
   <meta property="og:title" content="GridRename: bulk rename files from an Excel-like grid">
   <meta property="og:description" content="Paste names from Excel, preview every change, rename hundreds of files in one click.">
   <meta property="og:image" content="https://kusumaindraputra.github.io/GridRename-releases/assets/demo-poster.webp">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
+  <a class="skip" href="#main">Skip to content</a>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-paste" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/><path d="M16 4h2a2 2 0 0 1 2 2v4"/><path d="M21 14H11"/><path d="m15 10-4 4 4 4"/></symbol>
+    <symbol id="i-sort" viewBox="0 0 24 24"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M20 8h-5"/><path d="M15 10V6.5a2.5 2.5 0 0 1 5 0V10"/><path d="M15 14h5l-5 6h5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+  </svg>
+
+  <nav aria-label="Main">
     <div class="wrap">
-      <a class="brand" href="#"><img src="assets/logo.png" alt="">GridRename</a>
+      <a class="brand" href="#"><img src="assets/logo.png" alt="" width="30" height="30">GridRename</a>
       <div class="links">
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" href="https://lowfrictionlabs.gumroad.com/l/gridrename-free">Download free</a>
+        <a class="btn btn-ghost btn-sm" href="https://lowfrictionlabs.gumroad.com/l/gridrename-free">Download free</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="wrap">
-      <h1>Rename hundreds of files<br><span>like editing a spreadsheet</span></h1>
-      <p class="lead">Paste names straight from Excel or Google Sheets, build file names from columns, check every result in a live preview, then rename everything in one click.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://lowfrictionlabs.gumroad.com/l/gridrename-free">Download for Windows</a>
-        <a class="btn btn-ghost" href="#pricing">Get Pro ($15)</a>
-      </div>
-      <small>Free version renames up to 15 files at a time. Windows 10 and 11.</small>
-      <div class="demo">
-        <video src="assets/demo.mp4" poster="assets/demo-poster.webp" autoplay muted loop playsinline aria-label="GridRename demo: photos renamed by date, place and number"></video>
-      </div>
-    </div>
-  </header>
-
-  <section>
-    <div class="wrap">
-      <h2>Three steps, no scripts</h2>
-      <p class="sub">If you can use a spreadsheet, you can use GridRename.</p>
-      <div class="grid steps">
-        <div class="card"><h3>Open a folder</h3><p>Every file appears in the grid, sorted naturally (IMG_2 before IMG_10).</p></div>
-        <div class="card"><h3>Fill the columns</h3><p>Paste a list from Excel, add a running number, pull the date a photo was taken, or find and replace.</p></div>
-        <div class="card"><h3>Check and rename</h3><p>The preview shows the exact new name for every file. Click once to rename, and click Undo if you change your mind.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="features" style="background: var(--bg-2)">
-    <div class="wrap">
-      <h2>Everything you need to rename in bulk</h2>
-      <p class="sub">Built for photographers, office admins, archivists and anyone with a folder full of badly named files.</p>
-      <div class="grid three">
-        <div class="card"><div class="icon">📋</div><h3>Paste from Excel</h3><p>Copy a column of names from Excel or Google Sheets and paste it straight into the grid.</p></div>
-        <div class="card"><div class="icon">🧩</div><h3>Names from columns</h3><p>Combine date, place, client or number columns with the separator you choose.</p></div>
-        <div class="card"><div class="icon">👀</div><h3>Live preview</h3><p>See the final name of every file before anything is touched.</p></div>
-        <div class="card"><div class="icon">🔢</div><h3>Series &amp; fill</h3><p>Numbering with start, step and zero padding (001, 002…), or one value for every row.</p></div>
-        <div class="card"><div class="icon">📷</div><h3>Photo metadata</h3><p>Use the date a photo was taken or its dimensions, read from EXIF.</p></div>
-        <div class="card"><div class="icon">✂️</div><h3>Replace, extract, remove</h3><p>Find and replace (with regex), or keep and cut characters from the left, right or middle.</p></div>
-        <div class="card"><div class="icon">🛡️</div><h3>Safe by design</h3><p>Skips names that already exist, blocks invalid names, and undoes the last batch in one click.</p></div>
-        <div class="card"><div class="icon">🔒</div><h3>Private &amp; offline</h3><p>Your files never leave your computer. No account and no cloud.</p></div>
-        <div class="card"><div class="icon">⚡</div><h3>Small and fast</h3><p>A native app built with Rust. A small installer that starts instantly.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>See it in action</h2>
-      <p class="sub">Fourteen holiday photos renamed to date, place and number in under a minute.</p>
-      <div class="shots">
-        <figure><img src="assets/01-grid-preview.webp" alt="Grid with date, place and number columns and a live preview" loading="lazy"><figcaption>Build names from columns with a live preview</figcaption></figure>
-        <figure><img src="assets/02-tools-metadata.webp" alt="Column tools: metadata" loading="lazy"><figcaption>Use the date each photo was taken</figcaption></figure>
-        <figure><img src="assets/03-tools-series.webp" alt="Column tools: series numbering" loading="lazy"><figcaption>Number files with zero padding</figcaption></figure>
-        <figure><img src="assets/04-results.webp" alt="Rename results" loading="lazy"><figcaption>Clear results, with undo for the last batch</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" style="background: var(--bg-2)">
-    <div class="wrap">
-      <h2>Simple pricing</h2>
-      <p class="sub">Try everything that matters for free. Pay once for Pro, with no subscription.</p>
-      <div class="pricing">
-        <div class="plan">
-          <h3>Free</h3>
-          <div class="price">$0</div>
-          <ul>
-            <li>Up to 15 files per batch</li>
-            <li>Paste from Excel, columns, live preview</li>
-            <li>Fill, Series, plain text Replace</li>
-            <li>Extract / Remove from left or right</li>
-            <li>Undo last batch</li>
-            <li class="no">Regex, middle extract/remove, photo metadata</li>
-          </ul>
-          <a class="btn btn-ghost" href="https://lowfrictionlabs.gumroad.com/l/gridrename-free">Download free</a>
+  <main id="main">
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Rename hundreds of files <span>like editing a spreadsheet</span></h1>
+          <p class="lead">Paste names from Excel, build each name from columns, check every result in a live preview, then rename the whole folder in one click.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="https://lowfrictionlabs.gumroad.com/l/gridrename-free">Download for Windows</a>
+            <a class="btn btn-ghost" href="#pricing">Get Pro for $15</a>
+          </div>
+          <small>Free for up to 15 files per batch. Windows 10 and 11.</small>
         </div>
-        <div class="plan pro">
-          <h3>Pro</h3>
-          <div class="price">$15 <small>one-time</small></div>
-          <ul>
-            <li>Unlimited files per batch</li>
-            <li>Everything in Free</li>
-            <li>Regex find &amp; replace</li>
-            <li>Extract / Remove from the middle</li>
-            <li>Photo date taken &amp; dimensions</li>
-            <li>Use on up to 3 of your computers</li>
-            <li>All 2.x updates included</li>
-          </ul>
-          <a class="btn btn-primary" href="https://lowfrictionlabs.gumroad.com/l/gridrename-pro">Buy Pro</a>
+        <figure class="shot">
+          <video id="demo" src="assets/demo.mp4" poster="assets/demo-poster.webp" width="1600" height="900" autoplay muted loop playsinline aria-label="GridRename demo: fourteen photos renamed by date, place and number"></video>
+        </figure>
+      </div>
+    </header>
+
+    <section class="band" aria-labelledby="how">
+      <div class="wrap">
+        <h2 id="how">Three steps, no scripts</h2>
+        <p class="sub">If you can use a spreadsheet, you can use GridRename.</p>
+        <ol class="steps">
+          <li><h3>Open a folder</h3><p>Every file appears in the grid, sorted the way you expect: IMG_2 comes before IMG_10.</p></li>
+          <li><h3>Fill the columns</h3><p>Paste a list from Excel, add a running number, pull the date a photo was taken, or find and replace.</p></li>
+          <li><h3>Check and rename</h3><p>The preview shows the exact new name of every file. Rename in one click, and undo if you change your mind.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <h2 id="features-title">Built for folders full of badly named files</h2>
+        <p class="sub">Photographers, office admins and archivists use it to turn IMG_4821.JPG into names people can find.</p>
+        <div class="rows">
+          <div class="row">
+            <div>
+              <h3>Numbers, text and parts of the old name</h3>
+              <p>Each column has its own tools. Fill one value down the column, number the rows, or reuse pieces of the original file name.</p>
+              <ul class="ticks">
+                <li><svg class="icon"><use href="#i-check"/></svg>Series with start, step and zero padding: 001, 002, 003</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Find and replace, with regular expressions in Pro</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Keep or cut characters from the left, the right or the middle</li>
+              </ul>
+            </div>
+            <picture class="shot">
+              <source srcset="assets/03-tools-series-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="assets/03-tools-series.webp" alt="Column tools with series numbering: start at 1, step 1, three digits, giving 001, 002, 003" width="1000" height="625" loading="lazy">
+            </picture>
+          </div>
+          <div class="row">
+            <div>
+              <h3>The date each photo was taken <span class="pro-tag">Pro</span></h3>
+              <p>GridRename reads the EXIF data inside your photos, so a holiday folder sorts itself by the day each picture was shot, not the day it was copied.</p>
+              <ul class="ticks">
+                <li><svg class="icon"><use href="#i-check"/></svg>Date taken as 2026-07-12</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Image size as 6000x4000</li>
+              </ul>
+            </div>
+            <picture class="shot">
+              <source srcset="assets/02-tools-metadata-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="assets/02-tools-metadata.webp" alt="Column tools on the Metadata tab with Date taken selected" width="1000" height="550" loading="lazy">
+            </picture>
+          </div>
+          <div class="row">
+            <div>
+              <h3>Nothing changes until you say so</h3>
+              <p>The preview column shows every final name as you type. When you rename, GridRename tells you exactly what will happen first.</p>
+              <ul class="ticks">
+                <li><svg class="icon"><use href="#i-check"/></svg>Never overwrites a file that already exists</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Blocks names Windows would reject</li>
+                <li><svg class="icon"><use href="#i-check"/></svg>Undo the last batch in one click</li>
+              </ul>
+            </div>
+            <picture class="shot">
+              <source srcset="assets/05-confirm-dark.webp" media="(prefers-color-scheme: dark)">
+              <img src="assets/05-confirm.webp" alt="Confirmation: Rename 14 files? Files whose new name already exists are skipped" width="800" height="511" loading="lazy">
+            </picture>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="faq">
-    <div class="wrap">
-      <h2>Questions</h2>
-      <div class="faq">
-        <details><summary>Are my files uploaded anywhere?</summary><p>No. GridRename works entirely on your computer. The only thing it sends over the internet is your license key, to check it with our payment provider Gumroad, plus a check for new versions.</p></details>
-        <details><summary>How do I get Pro after buying?</summary><p>You receive a license key by email right after purchase. In GridRename, click <em>Upgrade to Pro</em>, paste the key and click <em>Activate</em>.</p></details>
-        <details><summary>Can I use it on more than one computer?</summary><p>Yes, one license works on up to 3 of your own computers. Getting a new computer? Email us and we'll reset your activations.</p></details>
-        <details><summary>Does Pro work offline?</summary><p>Yes. After activation, GridRename checks the license about once a week and keeps working for 30 days without internet.</p></details>
-        <details><summary>Can I undo a rename?</summary><p>Yes, the last batch can be undone with one click. GridRename also never overwrites an existing file.</p></details>
-        <details><summary>Which systems are supported?</summary><p>Windows 10 and 11 (64-bit). macOS and Linux versions are planned.</p></details>
-        <details><summary>What if it isn't right for me?</summary><p>Email us within 14 days of purchase for a full refund. See the <a href="terms.html#refunds">refund policy</a>.</p></details>
-        <details><summary>How do I pay?</summary><p>Checkout is handled by Gumroad, which accepts credit and debit cards and PayPal.</p></details>
+    <section class="band" aria-labelledby="also">
+      <div class="wrap">
+        <h2 id="also">And the small things</h2>
+        <p class="sub">The details that make a rename tool pleasant to use every week.</p>
+        <ul class="facts">
+          <li><svg class="icon"><use href="#i-paste"/></svg><strong>Paste a whole column</strong><span>Copy a list from Excel or Google Sheets and paste it into the first cell. Each line fills the next row.</span></li>
+          <li><svg class="icon"><use href="#i-sort"/></svg><strong>Natural sort order</strong><span>Files are listed the way people count, so photo 2 never lands after photo 10.</span></li>
+          <li><svg class="icon"><use href="#i-lock"/></svg><strong>Private and offline</strong><span>Your files never leave your computer. No account, no cloud, no tracking.</span></li>
+          <li><svg class="icon"><use href="#i-zap"/></svg><strong>Small and fast</strong><span>A native app built with Rust. The installer is small and the app opens instantly, in light or dark to match Windows.</span></li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <h2 id="pricing-title">Pay once, keep it</h2>
+        <p class="sub">The free version does everything most people need for small batches. Pro removes the limit, with no subscription.</p>
+        <div class="pricing">
+          <div class="plan">
+            <h3>Free</h3>
+            <div class="price">$0</div>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>Up to 15 files per batch</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Paste from Excel, columns, live preview</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Fill, series, plain text replace</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Extract and remove from left or right</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Undo the last batch</li>
+              <li class="no"><svg class="icon"><use href="#i-minus"/></svg>Regex, middle extract and remove, photo metadata</li>
+            </ul>
+            <a class="btn btn-ghost" href="https://lowfrictionlabs.gumroad.com/l/gridrename-free">Download free</a>
+          </div>
+          <div class="plan pro">
+            <h3>Pro</h3>
+            <div class="price">$15 <small>one-time</small></div>
+            <ul>
+              <li><svg class="icon"><use href="#i-check"/></svg>Unlimited files per batch</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Everything in Free</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Find and replace with regex</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Extract and remove from the middle</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Photo date taken and dimensions</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Use on up to 3 of your computers</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>All 2.x updates included</li>
+            </ul>
+            <a class="btn btn-primary" href="https://lowfrictionlabs.gumroad.com/l/gridrename-pro">Buy Pro for $15</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="band" aria-labelledby="faq-title">
+      <div class="wrap faq-grid">
+        <div>
+          <h2 id="faq-title">Questions</h2>
+          <p class="sub">Something else? Email <a href="mailto:kusumaindraputra@gmail.com">kusumaindraputra@gmail.com</a>.</p>
+        </div>
+        <div class="faq">
+          <details><summary>Are my files uploaded anywhere?</summary><p>No. GridRename works entirely on your computer. The only things it sends over the internet are your license key, to check it with our payment provider Gumroad, and a check for new versions.</p></details>
+          <details><summary>How do I get Pro after buying?</summary><p>You receive a license key by email right after purchase. In GridRename, click <em>Upgrade to Pro</em>, paste the key and click <em>Activate</em>.</p></details>
+          <details><summary>Can I use it on more than one computer?</summary><p>Yes, one license works on up to 3 of your own computers. Getting a new computer? Email us and we'll reset your activations.</p></details>
+          <details><summary>Does Pro work offline?</summary><p>Yes. After activation, GridRename checks the license about once a week and keeps working for 30 days without internet.</p></details>
+          <details><summary>Can I undo a rename?</summary><p>Yes, the last batch can be undone with one click. GridRename also never overwrites an existing file.</p></details>
+          <details><summary>Which systems are supported?</summary><p>Windows 10 and 11 (64-bit). macOS and Linux versions are planned.</p></details>
+          <details><summary>What if it isn't right for me?</summary><p>Email us within 14 days of purchase for a full refund. See the <a href="terms.html#refunds">refund policy</a>.</p></details>
+          <details><summary>How do I pay?</summary><p>Checkout is handled by Gumroad, which accepts credit and debit cards and PayPal.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="wrap">
+        <h2 id="closing-title">Give your files names you can find</h2>
+        <p class="sub">Try it on your next folder. The free version never expires.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://lowfrictionlabs.gumroad.com/l/gridrename-free">Download for Windows</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="wrap">
-      <span>© 2026 Kusuma Putra. GridRename.</span>
+      <span>© 2026 Kusuma Putra. GridRename is part of LowFriction Lab.</span>
       <span><a href="mailto:kusumaindraputra@gmail.com">kusumaindraputra@gmail.com</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms &amp; Refunds</a></span>
     </div>
   </footer>
+
+  <script>
+    // No autoplay for people who asked their system for less motion
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const demo = document.getElementById('demo');
+      demo.removeAttribute('autoplay');
+      demo.pause();
+      demo.controls = true;
+    }
+  </script>
 </body>
 </html>
